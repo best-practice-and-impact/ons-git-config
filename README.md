@@ -27,12 +27,49 @@ Aliases can be used to create shortcuts for regularly-used or hard-to-remember G
 My `.gitconfig` looks like this:
 
 [.gitconfig](the_setup/.gitconfig)
+```
+[includeIf "gitdir:D:/repos/ons/"]
+  	path = gitlab.inc
+
+[includeIf "gitdir:D:/repos/ext/"]
+  	path = github.inc
+
+[core]
+	pager = cat  # This stops me getting trapped in vim, which crashes on Anaconda prompt when using git diff and others
+
+[alias]
+	st = status
+	co = checkout
+	ci = commit
+	br = branch
+	pushup = "!git push --set-upstream origin $(git symbolic-ref --short HEAD)"  # Shortcut to push new branches to remote equivalent
+
+[pull]
+	ff = only  # Helps to keep history linear, by only allowing fast-forward merges when pulling
+```
 
 This references two arbitrarily named `.inc` files, which are included for GitLab and GitHub respectively. You'll need to substitute in your own credentials to use these template.
 
 `gitlab.inc`:
 [gitlab.inc](the_setup/gitlab.inc)
+```
+[user]
+	name = <ONS username>
+	email = <ONS email>
+```
 
 `github.inc`:
 [github.inc](the_setup/github.inc)
+```
+[user]
+	name = <Name>
+	email = <Email registered on GitHub>
+
+# The next two sections allow HTTP authentication with GitHub
+[http "https://github.com/"]
+	extraheader = Authorization: basic <Base64 encoded key from GitHub>  # Should ideally reference this key from an environmental variable
+
+[credential "https://github.com/"]
+	username = <GitHub username>
+```
 
