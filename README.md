@@ -14,7 +14,7 @@ Once this variable has been defined, you should move any existing `.gitconfig` f
 
 ## Conditional includes
 
-With the recent upgrade to the latest Git version (2.27), the configuration now supports [conditional includes](https://git-scm.com/docs/git-config#_conditional_includes). I've used this to select different user name and email parameters, depending on which folder a local repository is located in. I use one directory for GitLab repos (`ons\`) and another for GitHub (`ext\`). This allows me to correctly authenticate connection to either GitLab or GitHub, without needing to manually set these parameters for each individual repository.
+With the recent upgrade to the latest Git version (2.27), the configuration now supports [conditional includes](https://git-scm.com/docs/git-config#_conditional_includes). I've used this to select different user name and email parameters, depending on which folder a local repository is located in. I store all repos under `D:\repos\`, where I use one directory for GitLab repos (`ons\`) and another for GitHub (`ext\`). This conditional inclusion allows me to correctly authenticate connection to either GitLab or GitHub, without needing to manually set these parameters for each individual repository.
 
 
 ## Aliases
@@ -28,7 +28,7 @@ My `.gitconfig` looks like this:
 
 [.gitconfig](the_setup/.gitconfig)
 
-This references two arbitrarily named `.inc` files, which are included for GitLab and GitHub respectively.
+This references two arbitrarily named `.inc` files, which are included for GitLab and GitHub respectively. You'll need to substitute in your own credentials to use these template.
 
 `gitlab.inc`:
 [gitlab.inc](the_setup/gitlab.inc)
