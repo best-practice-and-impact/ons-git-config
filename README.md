@@ -64,7 +64,7 @@ This references two arbitrarily named `.inc` files, which are included for GitLa
 
 # The next two sections allow HTTP authentication with GitHub
 [http "https://github.com/"]
-	extraheader = Authorization: basic <Base64 encoded key from GitHub>  # Should ideally reference this key from an environmental variable
+	extraheader = Authorization: basic <Base64-encoded personal access token (PAT) from GitHub>  # Should ideally reference this key from an environmental variable
 
 [credential "https://github.com/"]
 	username = <GitHub username>
