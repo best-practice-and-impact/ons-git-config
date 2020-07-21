@@ -47,7 +47,6 @@ My `.gitconfig` looks like this:
 
 This references two arbitrarily named `.inc` files, which are included for GitLab and GitHub respectively. You'll need to substitute in your own credentials to use these template.
 
-`gitlab.inc`:
 [gitlab.inc](the_setup/gitlab.inc)
 ```
 [user]
@@ -55,7 +54,6 @@ This references two arbitrarily named `.inc` files, which are included for GitLa
 	email = <ONS email>
 ```
 
-`github.inc`:
 [github.inc](the_setup/github.inc)
 ```
 [user]
