@@ -43,9 +43,6 @@ My `.gitconfig` looks like this:
 	ci = commit
 	br = branch
 	pushup = "!git push --set-upstream origin $(git symbolic-ref --short HEAD)"  # Shortcut to push new branches to remote equivalent
-
-[pull]
-	ff = only  # Helps to keep history linear, by only allowing fast-forward merges when pulling
 ```
 
 This references two arbitrarily named `.inc` files, which are included for GitLab and GitHub respectively. You'll need to substitute in your own credentials to use these template.
