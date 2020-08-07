@@ -1,6 +1,8 @@
 # ONS Git Configuration
 
-I wanted to share my global Git configuration, to support use of GitHub alongside GitLab at the ONS. It also includes other features that you might find useful in your workflow. Some of these features are described below, with the complete files displayed at the bottom of the page. 
+I wanted to share my global Git configuration, to support use of GitHub alongside GitLab at the ONS. It also includes other features that you might find useful in your workflow. Some of these features are described below, with the complete files displayed at the bottom of the page.
+
+Feel free to copy the whole lot, but I'd suggest that you instead choose aspects that might be useful to you and add these to your own configuration.
 
 
 ## Home location
@@ -49,7 +51,7 @@ My `.gitconfig` looks like this:
 	pushup = "!git push --set-upstream origin $(git symbolic-ref --short HEAD)"  # Shortcut to push new branches to remote equivalent
 ```
 
-This references two arbitrarily named `.inc` files, which are included for GitLab and GitHub respectively. You'll need to substitute in your own credentials to use these template.
+This references two arbitrarily named `.inc` files, which are included for GitLab and GitHub respectively. You'll need to substitute in your own credentials to use parts of these templates.
 
 [gitlab.inc](the_setup/gitlab.inc)
 ```
@@ -64,7 +66,7 @@ This references two arbitrarily named `.inc` files, which are included for GitLa
 	name = <Name>
 	email = <Email registered on GitHub>
 
-# The next two sections allow HTTP authentication with GitHub, if SSH is not possible
+# The next two sections allow HTTP authentication with GitHub, but using SSH keys is preferable
 [http "https://github.com/"]
 	extraheader = Authorization: basic <Base64-encoded personal access token (PAT) from GitHub>  # Should ideally reference this key from an environmental variable
 
