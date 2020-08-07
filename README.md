@@ -5,13 +5,15 @@ I wanted to share my global Git configuration, to support use of GitHub alongsid
 
 ## Home location
 
-The default location that Git uses to store it's global configuration file (`.gitconfig`) is the "Home" drive. If you use SSH to connect to GitLab/GitHub, ssh also looks for your private key in the `.ssh\` directory here. At the ONS, "Home" is the networked drive that is mapped to `H:/`, which contains your `Documents\` directory etc. Unfortunately, this drive regularly disconnects, or is unable to synchronise, when working remotely. When this occurs, Git nor ssh are able to find the required files to function.
+The default location that Git uses to store it's global configuration file (`.gitconfig`) is the `HOME` location. If you use SSH to connect to GitLab/GitHub, ssh also looks for your private key in the `.ssh\` directory here. At the ONS, the default `HOME` location is the networked drive that is mapped to `H:/`, which contains your `Documents\` directory etc. Unfortunately, this drive can disconnect, or become unable to synchronise, when working remotely. When this occurs, Git nor ssh are able to find the required files to function.
 
-To remedy this, I defined a new "Home" location at a non-networked location on my machine. I've allocated `C:\Users\<my-username>` as "Home", though any other location on `C:` or `D:` would work equally as well. To define a new "Home" location, you can set a user envrionmental variable `HOME` to the path of that location. To do this, find `Edit environment variables for your account` in your machine's settings. Here create a new User variable with the Variable `HOME` and Value corresponding to the new location path.
+**Please only use the following solution if you are having similar issues with `H:/` disconnecting, as it might cause problems with other programs**
+
+To remedy this, I defined a new "Home" location at a non-networked location on my machine. I've allocated `C:\Users\<my-username>` as `HOME`, though any other location on `C:` or `D:` would work equally as well. To define a new `HOME` location, you can set a user envrionmental variable `HOME` to the path of that location. To do this, find `Edit environment variables for your account` in your machine's settings. Here create a new User variable with the Variable `HOME` and Value corresponding to the new location path.
 
 Once this variable has been defined, you should move any existing `.gitconfig` files or `.ssh\` directories from `H:` to the new location. Be aware that other software may rely on this "Home" location. In this case, you can either copy any other files to the new path or easily delete the variable and return the filed to `H:`.
 
-If you find that no `.gitconfig` file existed at the old or new HOME location, you can create it by setting any custom configuration like: `git config --global ...`
+If you find that no `.gitconfig` file existed at the old or new HOME location, you can create it by setting any custom configuration, for example: `git config --global user.name "John Doe"`
 
 
 ## Conditional includes
