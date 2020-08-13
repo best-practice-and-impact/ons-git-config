@@ -51,7 +51,7 @@ My `.gitconfig` looks like this:
 	pushup = "!git push --set-upstream origin $(git symbolic-ref --short HEAD)"  # Shortcut to push new branches to remote equivalent
 ```
 
-This references two arbitrarily named `.inc` files, which are included for GitLab and GitHub respectively. You'll need to substitute in your own credentials to use parts of these templates.
+This references two arbitrarily named `.inc` files, which are included for GitLab and GitHub respectively. You'll need to substitute in your own credentials to use parts of these templates. These files should sit next to your `.gitconfig` in the `HOME` directory.
 
 [gitlab.inc](the_setup/gitlab.inc)
 ```
