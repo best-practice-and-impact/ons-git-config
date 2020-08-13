@@ -13,7 +13,7 @@ The default location that Git uses to store it's global configuration file (`.gi
 
 To remedy this, I defined a new `HOME` location at a non-networked location on my machine. I've allocated `C:\Users\<my-username>` as `HOME`, though any other location on `C:` or `D:` would work equally as well. To define a new `HOME` location, you can set a user envrionmental variable `HOME` to the path of that location. To do this, find `Edit environment variables for your account` in your machine's settings. Here create a new User variable with the Variable `HOME` and Value corresponding to the new location path.
 
-Once this variable has been defined, you should move any existing `.gitconfig` files or `.ssh\` directories from `H:` to the new location. Be aware that other software may rely on this `HOME` location. In this case, you can either copy any other files to the new path or easily delete the variable and return the filed to `H:`.
+Once this variable has been defined, you should move any existing `.gitconfig` files and `.ssh\` directories from `H:` to the new location. Be aware that other software may rely on this `HOME` location. In this case, you can either copy any other files to the new path or easily delete the variable and return the filed to `H:`.
 
 If you find that no `.gitconfig` file existed at the old or new `HOME` location, you can create it by setting any custom configuration, for example: `git config --global user.name "John Doe"`
 
