@@ -43,7 +43,7 @@ If you don't want to add your ONS email to your GitHub account, or would like to
 
 With the recent upgrade to Git version (2.27), git configuration now supports [conditional includes](https://git-scm.com/docs/git-config#_conditional_includes). I've used this, to select different user name and email parameters, depending on which folder a local repository is located in. I store all repos under `D:\repos\`, where I use one directory for GitLab repos (`ons\`) and another for GitHub (`ext\`). This conditional inclusion allows me to correctly authenticate connection to either GitLab or GitHub, without needing to manually set these parameters for each individual repository.
 
-For example, to provide different user name and email settings you might use the following configuration:
+For example, to provide different user name and email settings you might include the following in your `.gitconfig`:
 
 [.gitconfig](the_setup/.gitconfig)
 ```
@@ -83,7 +83,7 @@ The `.gitconfig` above references two arbitrarily named `.inc` files, which are 
 
 Aliases can be used to create shortcuts for common or hard-to-remember Git commads. Most of the examples below shorten regular commands to two letters (e.g. `git status` to `git st`). While the last example makes it easier for me to push new local branches to new remote equivalents, as I often forget to use the `--set-upstream` flag when doing this.
 
-To create aliases, use 
+To create aliases, add a alias section to your `.gitconfig` like so:
 
 ```
 [alias]
