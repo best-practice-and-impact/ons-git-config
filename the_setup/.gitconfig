@@ -4,9 +4,6 @@
 [includeIf "gitdir:D:/repos/ext/"]
   	path = github.inc
 
-[core]
-	pager = cat  # This stops me getting trapped in vim, which crashes on Anaconda prompt when using git diff and others
-
 [alias]
 	st = status
 	co = checkout
