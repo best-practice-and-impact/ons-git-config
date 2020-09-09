@@ -1,17 +1,19 @@
 # Git Configuration
 
-I wanted to share some tips on Git configuration, to support use of GitHub alongside GitLab at the ONS. It also includes other features that you might find useful in your workflow. Some of these features are described below, with the complete files displayed at the bottom of the page.
+I wanted to share some tips on Git configuration, to support use of GitHub alongside GitLab at the ONS.
+This page also includes other features that you might find useful in your workflow.
 
-Feel free to copy the whole lot, but I'd suggest that you instead choose aspects that might be useful to you and add these to your own configuration.
+For general usage of Git, you can refer to the online [Pro Git](https://git-scm.com/book/en/v2) book.
 
 ## Issues
 
 These are issues which this document might help you resolve:
 
-1. `.gitconfig` or SSH keys are not found, due to the remote `H:/` drive not correctly syncing
+1. My `.gitconfig` or SSH keys are not found, due to the remote `H:/` drive not correctly syncing
 2. When I commit to a GitHub repository, commits are attributed to my ONS username/email but not my personal GitHub account
-3. I want to use different Git configuration settings for my GitHub and ONS GitLab repositories. 
+3. I want to use different Git configuration settings for my GitHub and ONS GitLab repositories, but don't want to set these individually for each repository
 4. I'm tired of typing long or complex Git commands
+5. My console keeps getting stuck when git writes a long output or I forget to write a commit message
 
 Outstanding issues:
 
@@ -79,7 +81,7 @@ The `.gitconfig` above references two arbitrarily named `.inc` files, which are 
 
 ## 4. Aliases
 
-Aliases can be used to create shortcuts for regularly-used or hard-to-remember Git commads. Most of the examples below shorten regular commands to two letters (e.g. `git status` to `git st`). While the last example makes it easier for me to push new local branches to new remote equivalents, as I often forget to use the `--set-upstream` flag when doing this.
+Aliases can be used to create shortcuts for common or hard-to-remember Git commads. Most of the examples below shorten regular commands to two letters (e.g. `git status` to `git st`). While the last example makes it easier for me to push new local branches to new remote equivalents, as I often forget to use the `--set-upstream` flag when doing this.
 
 To create aliases, use 
 
@@ -92,4 +94,13 @@ To create aliases, use
 	pushup = "!git push --set-upstream origin $(git symbolic-ref --short HEAD)"  # Shortcut to push new branches to remote equivalent
 ```
 
-This might look like quite a minimal time gain, but when you commit often I it does make the workflow feel faster.
+This might look like quite a minimal time gain, but when you commit often it can make the workflow feel faster.
+
+## 5. Getting unstuck
+
+When Git produces a long output (e.g. from `git diff` or `git log`), it uses the default pager `less` to allow you to scroll through the output. You can scroll up and down using arrows keys or use space to move down one page. To exit this scollable output, press `q`. If you don't like using this scrollable pager, you can configure git to print all of the content to the console using `git config --global pager.cat`.
+
+If you make a commit using `git commit` (or other command that requires a message), but don't provide a message with the `-m` flag, Git will open the default text editor `vim`. You can find a list of useful Vim commands [here](https://gist.github.com/CoolOppo/8832717), though most often you will want to write your commit message then press `Esc`, type `:x` and hit `Enter` to save the message and exit.
+
+`Vim` isn't the easiest editor to get to grips with, so you might want set an alternative default editor. For example, to set notepad as your editor, you can use: `git config --global core.editor notepad`. Other editors might require you to provide the path to their excecutable (`.exe`).
+
