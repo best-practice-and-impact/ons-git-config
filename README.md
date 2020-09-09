@@ -17,7 +17,7 @@ These are issues which this document might help you resolve:
 
 Outstanding issues:
 
-* SHH authentication doesn't currently work for repositories outside of the ONS network (GitHub), because `ssh` isn't configured to use the Windows certificate library for SSL.
+* SSH authentication doesn't currently work for repositories outside of the ONS network (GitHub), because `ssh` isn't configured to use the Windows certificate library for SSL.
 
 
 ## 1. Home location
