@@ -24,7 +24,7 @@ Outstanding issues:
 
 The default location that Git uses to store it's global configuration file (`.gitconfig`) is the `HOME` location. If you use SSH to connect to GitLab/GitHub, ssh also looks for your private key in the `.ssh\` directory here. At the ONS, the default `HOME` location is the networked drive that is mapped to `H:/`, which contains your `Documents\` directory etc. Unfortunately, this drive can disconnect, or become unable to synchronise, when working remotely. When this occurs, Git nor ssh are able to find the required files to function.
 
-**Please only use the following solution if you are having similar issues with `H:/` disconnecting, as this fix might cause problems with other programs that store files here**
+**Please only use the following solution if you are having similar issues with `H:/` disconnecting, as this fix might cause problems with other programs that store files here.**
 
 To remedy this, I defined a new `HOME` location at a non-networked location on my machine. I've allocated `C:\Users\<my-username>` as `HOME`, though any other location on `C:` or `D:` would work equally as well. To define a new `HOME` location, you can set a user envrionmental variable `HOME` to the path of that location. To do this, find `Edit environment variables for your account` (not system variables) in your machine's settings. Here create a new User variable with the Variable `HOME` and Value corresponding to the new location path.
 
@@ -41,7 +41,7 @@ GitHub uses the commit-author's email address to attribute commits to a GitHub a
 
 If you don't want to add your ONS email to your GitHub account, or would like to use a different configuration for GitLab and GitHub repositories, you can use the following setup.
 
-With the recent upgrade to Git version (2.27), git configuration now supports [conditional includes](https://git-scm.com/docs/git-config#_conditional_includes). I've used this, to select different user name and email parameters, depending on which folder a local repository is located in. I store all repos under `D:\repos\`, where I use one directory for GitLab repos (`ons\`) and another for GitHub (`ext\`). This conditional inclusion allows me to correctly authenticate connection to either GitLab or GitHub, without needing to manually set these parameters for each individual repository.
+With the recent upgrade to Git version (2.27), git configuration now supports [conditional includes](https://git-scm.com/docs/git-config#_conditional_includes). This can be used to set different Git configuration settings, depending on which folder a local repository is located in. I store all repos under `D:\repos\`, where I use one directory for GitLab repos (`ons\`) and another for GitHub (`ext\`). This conditional inclusion allows me to use a differnt configuration for each platform, without needing to manually set these parameters for each individual repository.
 
 For example, to provide different user name and email settings you might include the following in your `.gitconfig`:
 
